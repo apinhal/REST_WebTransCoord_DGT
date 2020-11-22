@@ -20,6 +20,5 @@ altout="Ortometrica"
 metodo="grelhas"
 metodo="bursaWolf"
 
-# curl
-#curl -s http://cgpr.dgterritorio.pt/webtranscoord/transformar\?x\=$x\&y\=$y\&z\=$z\&area\=$area\&crsin\=$4\&crsout\=$5\&altin\=$altin\&altout\=$altout\&metodo\=$metodo | awk -F';' '{print $1" "$2" "$3}'
-curl -s http://cgpr.dgterritorio.pt/webtranscoord/transformar\?x\=$x\&y\=$y\&z\=$z\&area\=$area\&crsin\=$4\&crsout\=$5\&altin\=$altin\&altout\=$altout\&metodo\=$metodo
+# run
+curl -s http://cgpr.dgterritorio.pt/webtranscoord/transformar\?x\=$x\&y\=$y\&z\=$z\&area\=$area\&crsin\=$4\&crsout\=$5\&altin\=$altin\&altout\=$altout\&metodo\=$metodo | awk -F';' '{print $1" "$2" "$3}'
