@@ -1,4 +1,5 @@
-# 2020-05-08
+# webTransCoord.sh
+Shell script para transformção de coordenadas com o serviço REST(WebTransCoord) da Direção-Geral do Território (DGT)
 
 ## [Serviço REST do WebTransCoord](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord)
 
