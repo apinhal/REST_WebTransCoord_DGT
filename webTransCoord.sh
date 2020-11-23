@@ -4,7 +4,7 @@
 
 x=$1
 y=$2
-z=$3 # Opcional
+z=$3 # optional
 
 # "Portugal Continental" /  Acores / Madeira
 area="Portugal%20Continental"
