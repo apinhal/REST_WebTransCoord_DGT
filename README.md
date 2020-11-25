@@ -1,6 +1,6 @@
 # webTransCoord.sh
 Shell script para transformção de coordenadas com o serviço REST(WebTransCoord) da Direção-Geral do Território (DGT)
 
-## [Serviço REST do WebTransCoord](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord)
+[Serviço REST do WebTransCoord](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord)
 
-## [CodigosWebTransCoord](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
+[CodigosWebTransCoord](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
