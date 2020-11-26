@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # webTransCoord.sh 0 0 0 3763 4258
 
@@ -8,7 +8,7 @@ tGREEN=$'\033[1;32m'    # Bold Light Green
 tBold=$'\033[1m'        # Bold
 tNS=$'\033[0m'          # No Style
 
-	#
+#
 ## usage
 if [ "$1" == "" ] || [ "$1" == "-h" ]; then
     
@@ -53,7 +53,7 @@ crsout=$2 #$5 # 4258
 
 
 # Datum Transform
-#metodo="grelhas" #(default)
+metodo="grelhas" #(default)
 #metodo="bursaWolf"
 
 #fullURL="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$x&y=$y&z=$z&area=$area&crsin=$4&crsout=$5&altin=$altin&altout=$altout&metodo=$metodo"
@@ -65,12 +65,21 @@ crsout=$2 #$5 # 4258
 #curl -s $xyURL | awk -F';' '{print $1" "$2}'
 
 
+
+
+reg='^[+-]?[0-9]+([.][0-9]+)?$' # decimal n regex
 while :
 do
 
 	read -a coord
 
-	fullURL="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=${coord[0]}&y=${coord[1]}&z=${coord[2]}&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
-	#echo $fullURL
-	curl -s $fullURL | awk -F';' '{print $1" "$2" "$3}'
+
+	if [[ ${coord[0]} =~ $reg ]] && [[ ${coord[1]} =~ $reg ]] && [[ ${coord[2]} =~ $reg ]]; then
+	
+		fullURL="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=${coord[0]}&y=${coord[1]}&z=${coord[2]}&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
+		#echo $fullURL
+		curl -s $fullURL | awk -F';' '{print $1" "$2" "$3}'
+	else
+		echo 'input error'
+	fi
 done
