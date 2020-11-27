@@ -66,7 +66,7 @@ altout=$4
 #altout="Elipsoidal"
 
 
-getWTC() { # func REST request
+getWTC() { # REST request
 	
 	fullURL="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
 	#echo $fullURL
