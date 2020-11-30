@@ -34,7 +34,7 @@ get_url() { # REST request
 
 print_error() {
   
-  echo "${tRED}input error${tNS}"
+  echo "input error"
 }
 
 
