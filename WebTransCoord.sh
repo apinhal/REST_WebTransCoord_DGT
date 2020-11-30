@@ -2,107 +2,104 @@
 #title          :WebTransCoord.sh
 #description    :Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT
 #author         :apinhal
-#date           :20201127
+#date           :20201129
 #=======
 
 
-# Text Style
-tRED=$'\033[1;31m'      # Bold Light Red
-tGREEN=$'\033[1;32m'    # Bold Light Green
-tBold=$'\033[1m'        # Bold
-tNS=$'\033[0m'          # No Style
+usage() {
+
+  echo "Usage: ${0##*/} [-h] [-am arg] [-cH arg,arg]" 1>&2
+  echo
+  echo "Transformção de coordenadas com o serviço REST(WebTransCoord) da Direção-Geral do Território."
+  echo
+  echo "Options:"
+  echo "  -a area: Portugal%20Continental¹ | Madeira | Acores"
+  echo "  -c crsin,crsoit (EPSG code): 27493,3763¹"
+  echo "  -H altin,altout: Elipsoidal,Ortometrica¹"
+  echo "  -m metodo: grelhas¹ | bursaWolf"
+  echo "  ¹default"
+  echo
+  echo "Example:"
+  echo "  WebTransCoord.sh -c 4258,3763 -H Elipsoidal,Ortometrica"
+
+  exit 1
+}
+
+get_url() { # REST request
+
+  URL="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
+  #echo $fullURL
+  curl -s $URL
+}
+
+print_error() {
+  
+  echo "${tRED}input error${tNS}"
+}
 
 
-#
-## usage
-if [ "$1" == "" ] || [ "$1" == "-h" ]; then
-    
-    echo "${tBold}usage:${tNS} ${0##*/} crsin crsout Elipsoidal Ortometrica"
-    exit 1
-fi
-
-
-#
-## CRS available
-# "Portugal Continental" /  Acores / Madeira
+# default input argumets
 area="Portugal%20Continental"
-#EPSG
-# 4258 - ETRS89
-# 3763 - ETRS89/PT-TM06
-# 4274 - Datum73
-# 27493 - Datum73/Hayford-Gauss
-# 4207 - DatumLisboa
-# 5018 - DatumLisboa/Hayford-Gauss
-# 20790 - DatumLisboa/Hayford-Gauss_FalsaOrigem
-#
-# 5013 - ITRF93 - Acores|Madeira
-#area="Acores"
-# 5014 - ITRF93/PTRA08_UTM25N
-# 2188 - DatumObservatório/UTM25N
-# 5015 - ITRF93/PTRA08_UTM26N
-# 2188 - DatumBaseSW/UTM26N
-# 2190 - DatumSBraz-SMiguel/UTM26N
-#area="Madeira"
-# 5016 - ITRF93/PTRA08_UTM28N
-# 3061 - DatumBaseSE/UTM28N
-#
-#
-## CRS i/o
-crsin=$1 #$4 # 3763
-crsout=$2 #$5 # 4258
+crsin="27493"
+crsout="3763"
+altin="Elipsoidal"
+altout="Ortometrica"
+metodo="grelhas"
 
+while getopts "a:c:H:m:h" opt; do
 
-# Datum Transform
-metodo="grelhas" #(default)
-#metodo="bursaWolf"
+  IFS=,
+  case $opt in
+    a) area=$OPTARG ;;
 
+    c) crs=($OPTARG)
+        crsin=${crs[0]}
+        crsout=${crs[1]} ;;
+     
+    H) alt=($OPTARG)
+        altin=${alt[0]}
+        altout=${alt[1]} ;;
 
-# if z used
-#altin="Elipsoidal"
-#altout="Ortometrica"
-altin=$3
-altout=$4
-#altout=""
-#altout="Elipsoidal"
+    m) metodo=$OPTARG ;;
 
+    h) usage
+       exit 0 ;;
 
-getWTC() { # REST request
-	
-	fullURL="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
-	#echo $fullURL
-	curl -s $fullURL
-}
+    *) usage
+       exit 1 ;;
+  esac
 
-errorPrint() {
-	
-	echo "${tRED}input error${tNS}"
-}
+done
+shift $((OPTIND - 1))
 
 
 reg="^[+-]?[0-9]+([.][0-9]+)?$"   # regex: decimal number 
-while IFS=" " read -r -a xyz; do  # input 2d or 3d	
+while IFS=" " read -r -a xyz; do  # input 2d or 3d
 
-	case ${#xyz[@]} in # check number of elements of array: xyz 
-	2)
-	 if [[ ${xyz[0]} =~ $reg ]] && [[ ${xyz[1]} =~ $reg ]]; then # validate 2d input
+  case ${#xyz[@]} in # check number of elements of array: xyz
+  2)
+    if [[ ${xyz[0]} =~ $reg ]] && [[ ${xyz[1]} =~ $reg ]]; then # validate 2d input
 
-		getWTC ${xyz[0]} ${xyz[1]} 0 | awk -F';' '{print $1" "$2}'
-	 else
-	 	errorPrint
-	 fi
+	  get_url ${xyz[0]} ${xyz[1]} 0 | awk -F';' '{print $1" "$2}'
+    
+	else
+	  print_error
+	fi
 	;;
 
-	3)
-	 if [[ ${xyz[0]} =~ $reg ]] && [[ ${xyz[1]} =~ $reg ]] && [[ ${xyz[2]} =~ $reg ]]; then # validate 3d input
+  3)
+    if [[ ${xyz[0]} =~ $reg ]] && [[ ${xyz[1]} =~ $reg ]] && [[ ${xyz[2]} =~ $reg ]]; then # validate 3d input
 	
-		getWTC ${xyz[0]} ${xyz[1]} ${xyz[2]} | awk -F';' '{print $1" "$2" "$3}'
-	 else
-		errorPrint
-	 fi
-	 ;;
+	  get_url ${xyz[0]} ${xyz[1]} ${xyz[2]} | awk -F';' '{print $1" "$2" "$3}'
+	
+	else
+	  print_error
+	fi
+	;;
 
-	*)
-	 errorPrint
-	esac
+  *)
+    print_error
+	;;
+  esac
 
 done
