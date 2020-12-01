@@ -17,8 +17,9 @@ Example:
   WebTransCoord.sh -c 4258,3763 -H Elipsoidal,Ortometrica
 ```
 
-### Lista de sistemas de referência disponiveis [pdf](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf) 
-#### Portugal Continental `area="Portugal%20Continental"`
+### Lista de sistemas de referência disponiveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
+
+#### Portugal Continental
 |EPSG|Nome|
 |:----|:-|
 |4258 |ETRS89|
@@ -29,7 +30,7 @@ Example:
 |5018 |Datum Lisboa/Hayford-Gauss|
 |20790|Datum Lisboa/Hayford-Gauss com falsa origem (Coordenadas Militares)|
 
-#### Açores `area="Acores"`
+#### Açores
 |EPSG|Nome|
 |:----|:-|
 |5013 |ITRF93|
@@ -39,7 +40,7 @@ Example:
 |2189 |Datum Base SW - Graciosa/UTM26N|
 |2190 |Datum S.Braz - S.Miguel/UTM26N|
 
-#### `area="Madeira"`
+#### Madeira
 |EPSG|Nome|
 |:----|:-|
 |5013 |ITRF93|
