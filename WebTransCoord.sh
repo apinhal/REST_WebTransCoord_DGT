@@ -1,4 +1,4 @@
-\#!/bin/bash -   
+#!/bin/bash -
 #title          :WebTransCoord.sh
 #description    :Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT
 #author         :apinhal
