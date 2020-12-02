@@ -26,7 +26,7 @@ Examples:
   WebTransCoord.sh -a Madeira -c 5016,5013 -H Elipsoidal,Ortometrica
 ```
 
-### Lista de Sistemas de Referência disponiveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
+### Lista de Sistemas de Referência disponíveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
 
 #### Portugal Continental
 |EPSG|Nome|
