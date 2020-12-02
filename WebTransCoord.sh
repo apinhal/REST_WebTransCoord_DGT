@@ -19,7 +19,7 @@ usage() {
   echo "  -H altin,altout: Elipsoidal,Ortometrica¹"
   echo "  -m metodo: grelhas¹ | bursaWolf"
   echo "  -h ajuda"
-  echo "  -l lista Sistemas de Referência (EPSG Nome)"
+  echo "  -l lista Sistemas de Referência disponíveis (EPSG Nome)"
   echo "  ¹default"
   echo
   echo "Examples:"
