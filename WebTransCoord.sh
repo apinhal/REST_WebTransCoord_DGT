@@ -25,8 +25,6 @@ usage() {
   echo "Examples:"
   echo "  WebTransCoord.sh -c 3763,4258 -H Elipsoidal,Ortometrica"
   echo "  WebTransCoord.sh -a Madeira -c 5016,5013 -H Elipsoidal,Ortometrica"
-
-  exit 1
 }
 
 get_url() { # REST request
@@ -68,6 +66,14 @@ echo "Lista de Sistemas de Referência (EPSG  Nome)
   5016  ITRF93/PTRA08-UTM28N
   3061  Datum Base SE/UTM28N"
 }
+
+
+# chek curl
+if command -v curl >/dev/null 2>&1; then
+    echo "curl OK"
+else
+    echo "curl nOK"
+fi
 
 
 # default input argumets
