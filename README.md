@@ -1,7 +1,7 @@
 TODO
-_testar CRS: 3061
-_traduzir
-_exemplos utilização
+* testar CRS: 3061
+* traduzir
+* exemplos utilização
 
 ## REST WebTransCoord DGT
 Shell script para transformção de coordenadas com o serviço [REST(WebTransCoord)](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord) da Direção-Geral do Território (DGT)
@@ -57,6 +57,6 @@ Examples:
 |3061 |Datum Base SE/UTM28N|
 
 ### Exemplos Utilização
-pagina DGT
-echo
-cat
+* pagina DGT
+* echo
+* cat

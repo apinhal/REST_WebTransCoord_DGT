@@ -8,7 +8,7 @@
 
 usage() {
 
-  echo "Usage: ${0##*/} [-h] [-am arg] [-cH arg,arg]" 1>&2
+  echo "Usage: ${0##*/} [-h] [-am arg] [-cH arg,arg]"
   echo
   echo "Transformção de coordenadas com o serviço REST(WebTransCoord)" 
   echo "da Direção-Geral do Território."
@@ -31,6 +31,7 @@ usage() {
 
 get_url() { # REST request
 
+  # check omh zsh script install curl if no available
   URL="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
   #echo $URL
   curl -s $URL
