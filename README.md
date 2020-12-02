@@ -1,23 +1,27 @@
 ## REST WebTransCoord DGT
 Shell script para transformção de coordenadas com o serviço [REST(WebTransCoord)](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord) da Direção-Geral do Território (DGT)
 
-```shell
+```txt
 Usage: WebTransCoord.sh [-h] [-am arg] [-cH arg,arg]
 
-Transformção de coordenadas com o serviço REST(WebTransCoord) da Direção-Geral do Território.
+Transformção de coordenadas com o serviço REST(WebTransCoord)
+da Direção-Geral do Território.
 
 Options:
   -a area: Portugal%20Continental¹ | Madeira | Acores
-  -c crsin,crsoit (EPSG code): 27493,3763¹
+  -c crsin,crsoit (EPSG codes): 27493,3763¹
   -H altin,altout: Elipsoidal,Ortometrica¹
   -m metodo: grelhas¹ | bursaWolf
+  -h ajuda
+  -l lista Sistemas de Referência (EPSG Nome)
   ¹default
 
-Example:
-  WebTransCoord.sh -c 4258,3763 -H Elipsoidal,Ortometrica
+Examples:
+  WebTransCoord.sh -c 3763,4258 -H Elipsoidal,Ortometrica
+  WebTransCoord.sh -a Madeira -c 5016,5013 -H Elipsoidal,Ortometrica
 ```
 
-### Lista de sistemas de referência disponiveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
+### Lista de Sistemas de Referência disponiveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
 
 #### Portugal Continental
 |EPSG|Nome|
@@ -28,7 +32,7 @@ Example:
 |27493|Datum73/Hayford-Gauss|
 |4207 |Datum Lisboa|
 |5018 |Datum Lisboa/Hayford-Gauss|
-|20790|Datum Lisboa/Hayford-Gauss com falsa origem (Coordenadas Militares)|
+|20790|Datum Lisboa/Hayford-Gauss falsa origem (Coordenadas Militares)|
 
 #### Açores
 |EPSG|Nome|
