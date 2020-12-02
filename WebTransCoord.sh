@@ -68,11 +68,11 @@ echo "Lista de Sistemas de Referência (EPSG  Nome)
 }
 
 
-# chek curl
-if command -v curl >/dev/null 2>&1; then
-    echo "curl OK"
-else
-    echo "curl nOK"
+# check if curl exists
+if ! command -v curl >/dev/null 2>&1; then
+    
+  echo "curl is not installed. Please install it first."
+  exit 1
 fi
 
 
