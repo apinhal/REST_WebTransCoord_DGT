@@ -29,10 +29,9 @@ usage() {
 
 get_url() { # REST request
 
-  # check omh zsh script install curl if no available
-  URL="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
+  url="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
   #echo $URL
-  curl -s $URL
+  curl -s $url
 }
 
 print_error() {
