@@ -1,8 +1,8 @@
-#!/bin/bash -   
+\#!/bin/bash -   
 #title          :WebTransCoord.sh
 #description    :Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT
 #author         :apinhal
-#date           :20201129
+#date           :20201201
 #=======
 
 
@@ -23,21 +23,23 @@ usage() {
   echo "  ¹default"
   echo
   echo "Examples:"
-  echo "  WebTransCoord.sh -c 3763,4258 -H Elipsoidal,Ortometrica"
-  echo "  WebTransCoord.sh -a Madeira -c 5016,5013 -H Elipsoidal,Ortometrica"
+  echo "  ${0##*/} -c 3763,4258 -H Elipsoidal,Ortometrica"
+  echo "  ${0##*/} -a Madeira -c 5016,5013 -H Elipsoidal,Ortometrica"
 }
+
 
 get_url() { # REST request
 
   url="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
-  #echo $URL
   curl -s $url
 }
+
 
 print_error() {
   
   echo "input error"
 }
+
 
 print_epsg_list() {
 
