@@ -45,7 +45,7 @@ print_epsg_list() {
 
 echo "Lista de Sistemas de Referência (EPSG  Nome)
 
-  Portugal Continental (-m grelhas|bursaWolf)
+  Portugal Continental (-m grelhas | bursaWolf)
   4258  ETRS89
   3763  ETRS89/PT-TM06
   4274  Datum73
