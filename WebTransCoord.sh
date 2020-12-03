@@ -23,8 +23,8 @@ usage() {
   echo "  ¹default"
   echo
   echo "Examples:"
-  echo "  ${0##*/} -c 3763,4258 -H Elipsoidal,Ortometrica"
-  echo "  ${0##*/} -a Madeira -c 3061,5016 -H Elipsoidal,Ortometrica -m bursaWolf"
+  echo "  ${0##*/} -c 3763,4258 -H Ortometrica,Elipsoidal"
+  echo "  ${0##*/} -a Madeira -c 3061,5016 -m bursaWolf"
 }
 
 
