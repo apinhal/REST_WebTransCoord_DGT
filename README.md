@@ -1,5 +1,5 @@
 ## REST Web TransCoord DGT
-Shell script para transformção de coordenadas com o serviço [REST(Web TransCoord)](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord) da Direção-Geral do Território (DGT). Disponível na página [Web TransCoord](http://cgpr.dgterritorio.pt/webtranscoord/).
+Shell script para transformação de coordenadas com o serviço [REST(Web TransCoord)](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord) da Direção-Geral do Território (DGT). Disponível na página [Web TransCoord](http://cgpr.dgterritorio.pt/webtranscoord/).
 
 ```txt
 Usage: WebTransCoord.sh [-h] [-am arg] [-cH arg,arg]
