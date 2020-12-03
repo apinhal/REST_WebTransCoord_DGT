@@ -17,8 +17,8 @@ Options:
   ¹default
 
 Examples:
-  WebTransCoord.sh -c 3763,4258 -H Elipsoidal,Ortometrica
-  WebTransCoord.sh -a Madeira -c 3061,5016 -H Elipsoidal,Ortometrica -m bursaWolf
+  WebTransCoord.sh -c 3763,4258 -H Ortometrica,Elipsoidal
+  WebTransCoord.sh -a Madeira -c 3061,5016 -m bursaWolf
 ```
 
 ### Lista de Sistemas de Referência disponíveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
