@@ -23,7 +23,7 @@ Examples:
 
 ### Lista de Sistemas de Referência disponíveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
 
-#### Portugal Continental
+#### Portugal Continental (-m grelhas|bursaWolf)
 |EPSG|Nome|
 |:----|:-|
 |4258 |ETRS89|
@@ -34,7 +34,7 @@ Examples:
 |5018 |Datum Lisboa/Hayford-Gauss|
 |20790|Datum Lisboa/Hayford-Gauss falsa origem (Coordenadas Militares)|
 
-#### Açores
+#### Açores (-m bursaWolf)
 |EPSG|Nome|
 |:----|:-|
 |5013 |ITRF93|
@@ -44,7 +44,7 @@ Examples:
 |2189 |Datum Base SW - Graciosa/UTM26N|
 |2190 |Datum S.Braz - S.Miguel/UTM26N|
 
-#### Madeira
+#### Madeira (-m bursaWolf)
 |EPSG|Nome|
 |:----|:-|
 |5013 |ITRF93|
