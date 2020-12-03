@@ -52,17 +52,16 @@ Examples:
 |3061 |Datum Base SE/UTM28N|
 
 ### Exemplos Utilização
-TODO
-* pagina DGT exemplos
-* echo
-* cat
+```shell
+➜  WebTransCoord.sh -c 4274,3763                        
+-8.532 38.5671
+-34687.36 -122085.75
+-8.532 38.5671 234
+-34687.36 -122085.75 233.09
 
-Exemplo 1
-http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=-8.4532&y=38.5671&area=Portugal%20Continental&crsin=4274&crsout=3763&metodo=grelhas
-Resulta em:
--27819.44;-122112.59
+➜  echo -8.532 38.5671 234 | WebTransCoord.sh -c 4274,3763 -H Elipsoidal,Ortometrica -m grelhas
+-34687.36 -122085.75 233.09
 
-Exemplo 2
-http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=-8.532&y=38.5671&z=234&area=Portugal%20Continental&crsin=4274&crsout=3763&altin=Elipsoidal&altout=Ortometrica&metodo=grelhas
-Resulta em:
--34687.36;-122085.75;233.09
+➜  cat file.txt | WebTransCoord.sh
+...
+```
