@@ -45,7 +45,7 @@ print_epsg_list() {
 
 echo "Lista de Sistemas de Referência (EPSG  Nome)
 
-  Portugal Continental (-m grelhas | bursaWolf)
+  -a Portugal%20Continental -m grelhas | bursaWolf
   4258  ETRS89
   3763  ETRS89/PT-TM06
   4274  Datum73
@@ -54,7 +54,7 @@ echo "Lista de Sistemas de Referência (EPSG  Nome)
   5018  Datum Lisboa/Hayford-Gauss
   20790 Datum Lisboa/Hayford-Gauss falsa origem (Coordenadas Militares)
 
-  Açores (-m bursaWolf)
+  -a Acores -m bursaWolf
   5013  ITRF93
   5014  ITRF93/PTRA08-UTM25N
   5015  ITRF93/PTRA08-UTM26N
@@ -62,7 +62,7 @@ echo "Lista de Sistemas de Referência (EPSG  Nome)
   2189  Datum Base SW - Graciosa/UTM26N
   2190  Datum S.Braz - S.Miguel/UTM26N
 
-  Madeira (-m bursaWolf)
+  -a Madeira -m bursaWolf
   5013  ITRF93
   5016  ITRF93/PTRA08-UTM28N
   3061  Datum Base SE/UTM28N"
