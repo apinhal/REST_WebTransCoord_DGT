@@ -1,29 +1,8 @@
-TODO
-* testar CRS: 3061
-* traduzir
-* exemplos utilização
-
 ## REST WebTransCoord DGT
-Shell script para transformção de coordenadas com o serviço [REST(WebTransCoord)](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord) da Direção-Geral do Território (DGT)
+Shell script para transformção de coordenadas com o serviço [REST(WebTransCoord)](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord) da Direção-Geral do Território (DGT), com a página [Web TransCoord](http://cgpr.dgterritorio.pt/webtranscoord/).
 
 ```txt
-Usage: WebTransCoord.sh [-h] [-am arg] [-cH arg,arg]
 
-Transformção de coordenadas com o serviço REST(WebTransCoord)
-da Direção-Geral do Território.
-
-Options:
-  -a area: Portugal%20Continental¹ | Madeira | Acores
-  -c crsin,crsoit (EPSG codes): 27493,3763¹
-  -H altin,altout: Elipsoidal,Ortometrica¹
-  -m metodo: grelhas¹ | bursaWolf
-  -h ajuda
-  -l lista Sistemas de Referência (EPSG Nome)
-  ¹default
-
-Examples:
-  WebTransCoord.sh -c 3763,4258 -H Elipsoidal,Ortometrica
-  WebTransCoord.sh -a Madeira -c 5016,5013 -H Elipsoidal,Ortometrica
 ```
 
 ### Lista de Sistemas de Referência disponíveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
@@ -58,6 +37,6 @@ Examples:
 
 ### Exemplos Utilização
 TODO
-* pagina DGT
+* pagina DGT exemplos
 * echo
 * cat

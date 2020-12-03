@@ -18,13 +18,13 @@ usage() {
   echo "  -c crsin,crsoit (EPSG codes): 27493,3763¹"
   echo "  -H altin,altout: Elipsoidal,Ortometrica¹"
   echo "  -m metodo: grelhas¹ | bursaWolf"
-  echo "  -h ajuda"
+  echo "  -h help"
   echo "  -l lista Sistemas de Referência disponíveis (EPSG Nome)"
   echo "  ¹default"
   echo
   echo "Examples:"
   echo "  ${0##*/} -c 3763,4258 -H Elipsoidal,Ortometrica"
-  echo "  ${0##*/} -a Madeira -c 5016,5013 -H Elipsoidal,Ortometrica"
+  echo "  ${0##*/} -a Madeira -c 3061,5016 -H Elipsoidal,Ortometrica -m bursaWolf"
 }
 
 
@@ -45,7 +45,7 @@ print_epsg_list() {
 
 echo "Lista de Sistemas de Referência (EPSG  Nome)
 
-  Portugal Continental
+  Portugal Continental (-m grelhas|bursaWolf)
   4258  ETRS89
   3763  ETRS89/PT-TM06
   4274  Datum73
@@ -54,7 +54,7 @@ echo "Lista de Sistemas de Referência (EPSG  Nome)
   5018  Datum Lisboa/Hayford-Gauss
   20790 Datum Lisboa/Hayford-Gauss falsa origem (Coordenadas Militares)
 
-  Açores
+  Açores (-m bursaWolf)
   5013  ITRF93
   5014  ITRF93/PTRA08-UTM25N
   5015  ITRF93/PTRA08-UTM26N
@@ -62,7 +62,7 @@ echo "Lista de Sistemas de Referência (EPSG  Nome)
   2189  Datum Base SW - Graciosa/UTM26N
   2190  Datum S.Braz - S.Miguel/UTM26N
 
-  Madeira
+  Madeira (-m bursaWolf)
   5013  ITRF93
   5016  ITRF93/PTRA08-UTM28N
   3061  Datum Base SE/UTM28N"
