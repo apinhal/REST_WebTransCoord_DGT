@@ -51,7 +51,7 @@ Examples:
 |5016 |ITRF93/PTRA08-UTM28N|
 |3061 |Datum Base SE/UTM28N|
 
-### Exemplos Utilização
+### Exemplos utilização
 ```shell
 ➜  WebTransCoord.sh -c 4274,3763                        
 -8.532 38.5671
