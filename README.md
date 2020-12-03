@@ -23,7 +23,7 @@ Examples:
 
 ### Lista de Sistemas de Referência disponíveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
 
-#### Portugal Continental (-m grelhas|bursaWolf)
+#### Portugal Continental (-m grelhas | bursaWolf)
 |EPSG|Nome|
 |:----|:-|
 |4258 |ETRS89|
