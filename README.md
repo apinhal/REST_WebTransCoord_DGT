@@ -1,29 +1,32 @@
-## REST Web TransCoord DGT
+# REST Web TransCoord DGT
+
 Shell script para transformação de coordenadas com o serviço [REST(Web TransCoord)](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord) da Direção-Geral do Território (DGT). Disponível na página [Web TransCoord](http://cgpr.dgterritorio.pt/webtranscoord/).
 
 ```txt
-Usage: WebTransCoord.sh [-h] [-am arg] [-cH arg,arg]
+Usage: WebTransCoordDGT.sh [-hl] [-am arg] [-cH arg,arg]
 
-Transformção de coordenadas com o serviço REST(WebTransCoord)
-da Direção-Geral do Território.
+Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT
+
+Default arguments:
+  WebTransCoordDGT.sh -m grelhas -c 27493,3763
 
 Options:
   -a area: Portugal%20Continental¹ | Madeira | Acores
-  -c crsin,crsoit (EPSG codes): 27493,3763¹
-  -H altin,altout: Elipsoidal,Ortometrica¹
+  -c crsIN,crsOUT (EPSG codes): 27493,3763¹
+  -H altIN,altOUT: Ortometrica,Ortometrica¹ | Elipsoidal
   -m metodo: grelhas¹ | bursaWolf
   -h help
-  -l lista Sistemas de Referência disponíveis (EPSG Nome)
+  -l lista de Sistemas de Referência disponíveis
   ¹default
 
 Examples:
-  WebTransCoord.sh -c 3763,4258 -H Ortometrica,Elipsoidal
-  WebTransCoord.sh -a Madeira -c 3061,5016 -m bursaWolf
+  WebTransCoordDGT.sh -c 4258,3763 -H Elipsoidal,Ortometrica
+  WebTransCoordDGT.sh -a Madeira -c 3061,5016 -m bursaWolf
 ```
 
-### Lista de Sistemas de Referência disponíveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
+## Lista de Sistemas de Referência disponíveis [PDF DGT](https://www.dgterritorio.gov.pt/sites/default/files/ficheiros-geodesia/CodigosWebTransCoord.pdf)
 
-##### `-a Portugal%20Continental -m grelhas | bursaWolf`
+### `-a Portugal%20Continental -m grelhas | bursaWolf`
 |EPSG|Nome|
 |:----|:-|
 |4258 |ETRS89|
@@ -34,7 +37,7 @@ Examples:
 |5018 |Datum Lisboa/Hayford-Gauss|
 |20790|Datum Lisboa/Hayford-Gauss falsa origem (Coordenadas Militares)|
 
-##### `-a Acores -m bursaWolf`
+### `-a Acores -m bursaWolf`
 |EPSG|Nome|
 |:----|:-|
 |5013 |ITRF93|
@@ -44,15 +47,15 @@ Examples:
 |2189 |Datum Base SW - Graciosa/UTM26N|
 |2190 |Datum S.Braz - S.Miguel/UTM26N|
 
-##### `-a Madeira -m bursaWolf`
+### `-a Madeira -m bursaWolf`
 |EPSG|Nome|
 |:----|:-|
 |5013 |ITRF93|
 |5016 |ITRF93/PTRA08-UTM28N|
 |3061 |Datum Base SE/UTM28N|
 
-### Exemplos utilização
-```shell
+## Exemplos de utilização
+```sh
 ➜  WebTransCoord.sh -c 4274,3763                        
 -8.532 38.5671
 -34687.36 -122085.75
@@ -62,6 +65,5 @@ Examples:
 ➜  echo -8.532 38.5671 234 | WebTransCoord.sh -c 4274,3763 -H Elipsoidal,Ortometrica -m grelhas
 -34687.36 -122085.75 233.09
 
-➜  cat file.txt | WebTransCoord.sh
-...
+➜  cat fileIN.txt | WebTransCoordDGT.sh > fileOUT.txt
 ```

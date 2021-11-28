@@ -9,7 +9,7 @@
 
 usage() {
 
-  echo "Usage: ${0##*/} [-h] [-am arg] [-cH arg,arg]"
+  echo "Usage: ${0##*/} [-hl] [-am arg] [-cH arg,arg]"
   echo
   echo "Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT"
   echo
@@ -22,7 +22,7 @@ usage() {
   echo "  -H altIN,altOUT: Ortometrica,Ortometrica¹ | Elipsoidal"
   echo "  -m metodo: grelhas¹ | bursaWolf"
   echo "  -h help"
-  echo "  -l lista Sistemas de Referência disponíveis (EPSG Nome)"
+  echo "  -l lista de Sistemas de Referência disponíveis"
   echo "  ¹default"
   echo
   echo "Examples:"
