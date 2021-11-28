@@ -1,34 +1,38 @@
-#!/bin/bash -
-#title          :WebTransCoord.sh
+#!/usr/bin/env sh
+
+#title          :WebTransCoordDGT.sh
 #description    :Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT
 #author         :apinhal
-#date           :20201201
-#=======
+#date           :2020-12-01
+
 
 
 usage() {
 
   echo "Usage: ${0##*/} [-h] [-am arg] [-cH arg,arg]"
   echo
+  echo "Default:"
+  echo "  ${0##*/} -m grelhas -c 27493,3763 -H Ortometrica,Ortometrica" 
+  echo
   echo "Transformção de coordenadas com o serviço REST(WebTransCoord)" 
   echo "da Direção-Geral do Território."
   echo
   echo "Options:"
   echo "  -a area: Portugal%20Continental¹ | Madeira | Acores"
-  echo "  -c crsin,crsoit (EPSG codes): 27493,3763¹"
-  echo "  -H altin,altout: Elipsoidal,Ortometrica¹"
+  echo "  -c crsIN,crsOUT (EPSG codes): 27493,3763¹"
+  echo "  -H altIN,altOUT: Ortometrica,Ortometrica¹ | Elipsoidal"
   echo "  -m metodo: grelhas¹ | bursaWolf"
   echo "  -h help"
   echo "  -l lista Sistemas de Referência disponíveis (EPSG Nome)"
   echo "  ¹default"
   echo
   echo "Examples:"
-  echo "  ${0##*/} -c 3763,4258 -H Ortometrica,Elipsoidal"
+  echo "  ${0##*/} -c 4258,3763 -H Elipsoidal,Ortometrica"
   echo "  ${0##*/} -a Madeira -c 3061,5016 -m bursaWolf"
 }
 
 
-get_url() { # REST request
+get_url() { # get request
 
   url="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
   curl -s $url
@@ -43,29 +47,31 @@ print_error() {
 
 print_epsg_list() {
 
-echo "Lista de Sistemas de Referência (EPSG  Nome)
+echo "Lista de Sistemas de Referência:
+
+    EPSG  Nome
 
   -a Portugal%20Continental -m grelhas | bursaWolf
-  4258  ETRS89
-  3763  ETRS89/PT-TM06
-  4274  Datum73
-  27493 Datum73/Hayford-Gauss
-  4207  Datum Lisboa
-  5018  Datum Lisboa/Hayford-Gauss
-  20790 Datum Lisboa/Hayford-Gauss falsa origem (Coordenadas Militares)
+    4258  ETRS89
+    3763  ETRS89/PT-TM06
+    4274  Datum73
+    27493 Datum73/Hayford-Gauss
+    4207  Datum Lisboa
+    5018  Datum Lisboa/Hayford-Gauss
+    20790 Datum Lisboa/Hayford-Gauss falsa origem (Coordenadas Militares)
 
   -a Acores -m bursaWolf
-  5013  ITRF93
-  5014  ITRF93/PTRA08-UTM25N
-  5015  ITRF93/PTRA08-UTM26N
-  2188  Datum Observatório - Flores/UTM25N
-  2189  Datum Base SW - Graciosa/UTM26N
-  2190  Datum S.Braz - S.Miguel/UTM26N
+    5013  ITRF93
+    5014  ITRF93/PTRA08-UTM25N
+    5015  ITRF93/PTRA08-UTM26N
+    2188  Datum Observatório - Flores/UTM25N
+    2189  Datum Base SW - Graciosa/UTM26N
+    2190  Datum S.Braz - S.Miguel/UTM26N
 
   -a Madeira -m bursaWolf
-  5013  ITRF93
-  5016  ITRF93/PTRA08-UTM28N
-  3061  Datum Base SE/UTM28N"
+    5013  ITRF93
+    5016  ITRF93/PTRA08-UTM28N
+    3061  Datum Base SE/UTM28N"
 }
 
 
@@ -81,7 +87,7 @@ fi
 area="Portugal%20Continental"
 crsin="27493"
 crsout="3763"
-altin="Elipsoidal"
+altin="Ortometrica"
 altout="Ortometrica"
 metodo="grelhas"
 #
