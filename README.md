@@ -56,14 +56,14 @@ Examples:
 
 ## Exemplos de utilização
 ```sh
-➜  WebTransCoord.sh -c 4274,3763                        
+➜  WebTransCoordDGT.sh -c 4274,3763                        
 -8.532 38.5671
 -34687.36 -122085.75
 -8.532 38.5671 234
 -34687.36 -122085.75 233.09
 
-➜  echo -8.532 38.5671 234 | WebTransCoord.sh -c 4274,3763 -H Elipsoidal,Ortometrica -m grelhas
--34687.36 -122085.75 233.09
+➜  echo -8.5323431 38.5671242 234 | WebTransCoordDGT.sh -c 4274,3763 -H Elipsoidal,Ortometrica -m grelhas
+-34717.25 -122082.94 233.09
 
 ➜  cat fileIN.txt | WebTransCoordDGT.sh > fileOUT.txt
 ```
