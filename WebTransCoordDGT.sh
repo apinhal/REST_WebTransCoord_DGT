@@ -14,7 +14,7 @@ usage() {
   echo "Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT"
   echo
   echo "Default arguments:"
-  echo "  ${0##*/} -m grelhas -c 27493,3763 -H Ortometrica,Ortometrica" 
+  echo "  ${0##*/} -m grelhas -c 27493,3763" 
   echo
   echo "Options:"
   echo "  -a area: Portugal%20Continental¹ | Madeira | Acores"
@@ -31,7 +31,7 @@ usage() {
 }
 
 
-get_url() { # get request
+get_url() {
 
   url="http://cgpr.dgterritorio.pt/webtranscoord/transformar?x=$1&y=$2&z=$3&area=$area&crsin=$crsin&crsout=$crsout&altin=$altin&altout=$altout&metodo=$metodo"
   curl -s $url
