@@ -11,11 +11,10 @@ usage() {
 
   echo "Usage: ${0##*/} [-h] [-am arg] [-cH arg,arg]"
   echo
-  echo "Default:"
-  echo "  ${0##*/} -m grelhas -c 27493,3763 -H Ortometrica,Ortometrica" 
+  echo "Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT"
   echo
-  echo "Transformção de coordenadas com o serviço REST(WebTransCoord)" 
-  echo "da Direção-Geral do Território."
+  echo "Default arguments:"
+  echo "  ${0##*/} -m grelhas -c 27493,3763 -H Ortometrica,Ortometrica" 
   echo
   echo "Options:"
   echo "  -a area: Portugal%20Continental¹ | Madeira | Acores"
