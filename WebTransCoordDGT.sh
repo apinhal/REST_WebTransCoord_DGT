@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 #title          :WebTransCoordDGT.sh
 #description    :Transformção de coordenadas com o serviço REST(WebTransCoord) da DGT
