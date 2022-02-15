@@ -1,4 +1,4 @@
-# REST Web TransCoord DGT
+# WebTransCoord DGT
 
 Shell script para transformação de coordenadas com o serviço [WebTransCoord](https://www.dgterritorio.gov.pt/geodesia/transformacao-coordenadas/Web-TransCoord) da Direção-Geral do Território (DGT). Disponível na página: <http://cgpr.dgterritorio.pt/webtranscoord/>
 
